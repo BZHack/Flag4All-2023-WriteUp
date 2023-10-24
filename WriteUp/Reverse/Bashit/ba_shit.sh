@@ -23,7 +23,6 @@ for i in {0..1489} ; do
 done
 
 muh=$(echo $muh | perl -lape '$_=pack"(B8)*",@F')
-echo $muh
 eval $muh
 declare -i b=0
 for code in $(echo $flag  | sed -E 's#(.)#\1 #g') ; do

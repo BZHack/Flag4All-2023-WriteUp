@@ -12,11 +12,6 @@ done
 muh=$(echo $muh | perl -lape '$_=pack"(B8)*",@F')
 hum=$(echo $muh | sed -E 's/(paslinux\[)(.)\]="([^"]+)"/\1\3]="\2"/g') 
 eval $hum
-#############"
-####################
-#echo $flag | sed 's/ //g' | xxd -r -p | sed -E 's#([^/]+)/#"\1" #g'
-#echo $flag | sed 's/ //g' | xxd -r -p 
-#read
 IFS=';'
 for code in $(echo $flag | sed 's/ //g' | xxd -r -p | sed -E 's#([^/]+)/#\1;#g;s#/##g') ; do
 	decode=$decode$(echo "${paslinux[$( printf "$code" | sed -E 's/"([^"]+)"/\1/')]}")
